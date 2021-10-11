@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -27,6 +26,9 @@ public class User {
 
     @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "gender")
+    private String gender;
 
     @Column(name = "middle_name")
     private String middleName;
