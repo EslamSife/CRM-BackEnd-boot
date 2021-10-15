@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -85,5 +86,16 @@ public class Payment {
                 ", order=" + order +
                 ", paymentItems=" + paymentItems +
                 '}';
+    }
+
+
+    public void add(PaymentItem paymentItem) {
+        if (paymentItem != null) {
+            if (paymentItems == null) {
+                paymentItems = new HashSet<>();
+            }
+            paymentItems.add(paymentItem);
+            paymentItem.setPayment(this);
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.pet.clinic.crm.config;
 
 
 import com.pet.clinic.crm.entity.RoleType;
+import com.pet.clinic.crm.entity.Service;
 import com.pet.clinic.crm.entity.User;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -16,6 +17,7 @@ public class RepositoryConfig implements RepositoryRestConfigurer {
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         config.exposeIdsFor(User.class);
         config.exposeIdsFor(RoleType.class);
+        config.exposeIdsFor(Service.class);
     }
 
 }

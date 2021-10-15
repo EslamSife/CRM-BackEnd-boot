@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -71,6 +72,15 @@ public class Ticket {
     }
 
 
+    public void add(TicketItem item) {
+        if (item != null) {
+            if (ticketItems == null) {
+                ticketItems = new HashSet<>();
+            }
+            ticketItems.add(item);
+            item.setTicket(this);
+        }
+    }
 
 
 

@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -101,5 +102,27 @@ public class Customer {
 
 
 
+
+
+    public void add(Pet pet) {
+        if (pet != null) {
+            if (pets == null) {
+                pets = new HashSet<>();
+            }
+            pets.add(pet);
+            pet.setOwner(this);
+        }
+    }
+
+
+    public void add(Ticket ticket) {
+        if (ticket != null) {
+            if (tickets == null) {
+                tickets = new HashSet<>();
+            }
+            tickets.add(ticket);
+            ticket.setCustomer(this);
+        }
+    }
 
 }
