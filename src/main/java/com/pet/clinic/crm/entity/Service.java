@@ -1,6 +1,7 @@
 package com.pet.clinic.crm.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -40,6 +41,7 @@ public class Service {
     private Date lastUpdated;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "service")
+    @JsonIgnore
     private Set<TicketItem> ticketItems;
 
     public Service() {

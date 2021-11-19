@@ -1,6 +1,7 @@
 package com.pet.clinic.crm.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -54,9 +55,11 @@ public class Customer {
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    @JsonIgnore
     private Set<Ticket> tickets;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    @JsonIgnore
     private Set<Pet> pets;
 
 

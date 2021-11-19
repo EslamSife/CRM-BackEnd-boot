@@ -1,6 +1,7 @@
 package com.pet.clinic.crm.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -53,6 +54,7 @@ public class Ticket {
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ticket")
+    @JsonIgnore
     private Set<TicketItem> ticketItems;
 
 

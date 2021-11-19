@@ -1,9 +1,7 @@
 package com.pet.clinic.crm.config;
 
 
-import com.pet.clinic.crm.entity.RoleType;
-import com.pet.clinic.crm.entity.Service;
-import com.pet.clinic.crm.entity.User;
+import com.pet.clinic.crm.entity.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -18,6 +16,11 @@ public class RepositoryConfig implements RepositoryRestConfigurer {
         config.exposeIdsFor(User.class);
         config.exposeIdsFor(RoleType.class);
         config.exposeIdsFor(Service.class);
+        config.exposeIdsFor(Customer.class);
+        config.exposeIdsFor(Ticket.class);
+        config.exposeIdsFor(TicketItem.class);
+        config.exposeIdsFor(Payment.class);
+        config.exposeIdsFor(PaymentItem.class);
     }
 
 }

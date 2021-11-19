@@ -1,6 +1,7 @@
 package com.pet.clinic.crm.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,10 +24,12 @@ public class TicketStatus {
     private String statusName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ticketStatus")
+    @JsonIgnore
     private Set<Ticket> tickets;
     
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ticketStatus")
+    @JsonIgnore
     private Set<TicketItem> ticketItems;
 
     public TicketStatus() {
